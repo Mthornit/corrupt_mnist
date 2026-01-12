@@ -16,7 +16,10 @@ def test_traning():
     # Set the wandb project where this run will be logged.
     project="corrupt_mnist",
     # Not a new experiment, just reading data
-    job_type="read"
+    job_type="read",
+    settings=wandb.Settings(
+        host="localhost"
+    )
     )
     
     # Retrieve the latest version of the artifact
