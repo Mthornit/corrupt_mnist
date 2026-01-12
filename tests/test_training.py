@@ -16,7 +16,7 @@ def test_traning():
     # Set the wandb project where this run will be logged.
     project="corrupt_mnist",
     # Not a new experiment, just reading data
-    mode="offline"
+    job_type="read"
     )
     
     # Retrieve the latest version of the artifact
