@@ -25,5 +25,7 @@ jobs:
         uv sync --dev --locked
 
     - name: Test with pytest
+      env:
+          WANDB_API_KEY: ${{ secrets.WANDB_API_KEY }}
       run: |
         uv run pytest -v
