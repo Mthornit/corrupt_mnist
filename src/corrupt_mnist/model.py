@@ -25,6 +25,8 @@ class MyAwesomeModel(nn.Module):
 
     
     def forward(self, img) -> torch.tensor:
+        if img.ndim != 3:
+            raise ValueError('Expected input to a 3D tensor: Batchsize, h, w')
         img = img.unsqueeze(1)
         self.cnn_features = self.seq(img)
         self.out = self.flatten(self.cnn_features)
