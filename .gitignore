@@ -178,3 +178,4 @@ cython_debug/
 
 course_exercises/
 wandb/
+log/
