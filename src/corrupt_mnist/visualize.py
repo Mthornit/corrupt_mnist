@@ -2,7 +2,7 @@ import torch
 from sklearn.manifold import TSNE
 import typer
 import matplotlib.pyplot as plt
-from src.corrupt_mnist.model import MyAwesomeModel
+from model import MyAwesomeModel
 
 def visualize(model_checkpoint: str = "models/model.pth", figure_name: str = "embeddings.png") -> None:
     """Visualize model predictions."""

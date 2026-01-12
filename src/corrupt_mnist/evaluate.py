@@ -1,6 +1,6 @@
 import torch
-from src.corrupt_mnist.data import corrupt_mnist_data
-from src.corrupt_mnist.model import MyAwesomeModel
+from data import corrupt_mnist_data
+from model import MyAwesomeModel
 from torch.utils.data import DataLoader
 import typer
 

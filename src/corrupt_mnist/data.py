@@ -1,11 +1,11 @@
 import typer
 import torch
-from torchvision import transforms
+import os
 
 def preprocess_data(raw_dir: str = "data/raw", processed_dir: str = "data/processed") -> None:
     """Process raw data and save it to processed directory."""
-    normalize = transforms.Normalize(mean=[0.5], std=[0.5])
-
+    os.makedirs(raw_dir, exist_ok=True)
+    os.makedirs(processed_dir, exist_ok=True)
     trainimg_paths = [f"{raw_dir}/train_images_{i}.pt" for i in range(6)]
     traintarget_paths = [f"{raw_dir}/train_target_{i}.pt" for i in range(6)]
     testimg_path = f"{raw_dir}/test_images.pt"
@@ -15,9 +15,6 @@ def preprocess_data(raw_dir: str = "data/raw", processed_dir: str = "data/proces
     train_labels = torch.cat([torch.load(path) for path in traintarget_paths], dim=0).long()
     test = torch.load(testimg_path).float()
     test_labels = torch.load(testtarget_path).long()
-    
-    train = normalize(train)
-    test = normalize(test)
 
     torch.save(train, f"{processed_dir}/train_images.pt")
     torch.save(train_labels, f"{processed_dir}/train_target.pt")
@@ -26,6 +23,7 @@ def preprocess_data(raw_dir: str = "data/raw", processed_dir: str = "data/proces
 
 
 def corrupt_mnist_data() -> tuple[torch.utils.data.Dataset, torch.utils.data.Dataset]:
+    os.makedirs("data/processed", exist_ok=True)
     """Return train and test datasets for corrupt MNIST."""
     train_images = torch.load("data/processed/train_images.pt")
     train_target = torch.load("data/processed/train_target.pt")
