@@ -1,10 +1,13 @@
 import wandb
-from dotenv import load_dotenv
 import os
 
-load_dotenv()
-api_key = os.getenv("WANDB_API_KEY")
-wandb.login(key=api_key)
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+    api_key = os.getenv("WANDB_API_KEY")
+    wandb.login(key=api_key)
+except:
+    pass
 
 run = wandb.init(
 # Set the wandb entity where your project will be logged (generally your team name).
