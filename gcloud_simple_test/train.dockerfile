@@ -5,10 +5,10 @@ RUN apt update && \
     apt install --no-install-recommends -y build-essential gcc && \
     apt clean && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /
+WORKDIR /gcloud_simple_test/
 
-COPY pyproject.toml pyproject.toml
-COPY main.py main.py
+COPY gcloud_simple_test/pyproject.toml pyproject.toml
+COPY gcloud_simple_test/main.py main.py
 
 RUN uv sync --no-cache
 
