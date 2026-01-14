@@ -1,3 +1,4 @@
+[project.dependencies]
 dependencies = [
     "scikit-learn>1.0",
 ]
