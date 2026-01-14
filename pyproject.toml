@@ -41,6 +41,7 @@ dev = [
     "torch-tb-profiler>=0.4.3",
     "pytest>=9.0.2",
     "coverage>=7.13.1",
+    "google-api-python-client>=2.187.0",
 ]
 
 [tool.uv]
