@@ -7,7 +7,7 @@ steps:
     '-t',
     'europe-west1-docker.pkg.dev/$PROJECT_ID/my-artifact-registry/my-image',
     '-f',
-    'train.dockerfile'
+    'gcloud_simple_test/train.dockerfile'
   ]
 - name: 'gcr.io/cloud-builders/docker'
   id: 'Push container image'
